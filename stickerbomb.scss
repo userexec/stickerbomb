@@ -1,0 +1,441 @@
+$applicationBG: #100000;
+
+$leftBarBG: #100001;
+$leftBarButtons: #100002;
+$leftBarButtonsHover: #100003;
+$leftBarButtonsActive: #100004;
+$leftBarIcons: #100005;
+$leftBarIconsHover: #100006;
+$leftBarIconsActive: #100007;
+$leftBarShadow: 0px 0px 0px #100001;
+
+$rightBarBG: #100011;
+$rightBarButtons: #100012;
+$rightBarButtonsHover: #100013;
+$rightBarButtonsActive: #100014;
+$rightBarIcons: #100015;
+$rightBarIconsHover: #100016;
+$rightBarIconsActive: #100017;
+$rightBarShadow: 0px 0px 0px #100011;
+
+$tooltipText: #100021;
+$tooltipBG: #100022;
+
+$drawerBarBG: #100031;
+$drawerBarButtons: #100032;
+$drawerBarButtonsHover: #100033;
+$drawerBarButtonsActive: #100034;
+$drawerBarText: #100035;
+$drawerBarTextHover: #100036;
+$drawerBarTextActive: #100037;
+$drawerBarShadow: 0px 0px 0px #100031;
+
+$drawerBG: #100041;
+
+$scrollButtons: #100051;
+$scrollButtonsBorders: #100052;
+$scrollButtonsIcons: #100053;
+$scrollButtonsHover: #100054;
+$scrollButtonsBordersHover: #100055;
+$scrollButtonsIconsHover: #100056;
+
+$font: 'Arial';
+
+
+
+
+$desktop-button-height: 2.5rem;
+$desktop-drawer-height: 11rem;
+$desktop-icon-size: 1.5rem;
+$desktop-font-size: 1.2rem;
+
+$mobile-button-height: 2rem;
+$mobile-drawer-height: 6rem;
+$mobile-icon-size: 1.3rem;
+$mobile-font-size: 1rem;
+
+.stickerbomb {
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	-webkit-user-select: none;     
+	background-color: $applicationBG;
+	box-sizing: border-box;
+	display: inline-block;
+	font-family: $font;
+	font-size: 0px;
+	overflow: hidden;
+	padding: 0px $desktop-button-height $desktop-button-height $desktop-button-height;
+	position: relative;
+	text-align: center;
+	user-select: none;
+	width: 100%;
+	min-height: 8 * $mobile-button-height + 1rem;
+
+	@media screen and (max-width: 500px) {
+		padding: 0px 2rem 2rem 2rem;
+	}
+
+	div {
+		box-sizing: border-box;
+	}
+}
+
+.sb_canvas {
+	width: 100%;
+	min-height: 1rem;
+	cursor: pointer;
+	//max-width: 800px;
+	position: relative;
+	z-index: 1;
+	-webkit-tap-highlight-color: transparent;
+	transition: opacity 200ms linear;
+	opacity: 1;
+
+	&.fade {
+		opacity: 0.5;
+	}
+}
+
+.sb_logo {
+	position: absolute;
+	z-index: 3;
+	right: 0.5rem;
+	bottom: 4rem;
+	width: 2rem;
+}
+
+.sb_popup {
+	background-color: $applicationBG;
+	box-shadow: $rightBarShadow;
+	left: 10%;
+	opacity: 0;
+	padding: $desktop-font-size;
+	pointer-events: none;
+	position: absolute;
+	text-align: center;
+	top: 50%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	transition: opacity 200ms linear;
+	width: 80%;
+	z-index: 5;
+	font-size: 1rem;
+	color: $rightBarIcons;
+
+	@media screen and (max-width: 500px) {
+		padding: 0.3rem;
+		top: 25%;
+		width: 70%;
+		left: 15%;
+		-webkit-transform: translateY(-25%);
+	}
+
+	&.active {
+		opacity: 1;
+		pointer-events: auto;
+	}
+
+	p {
+		margin-top: 0px;
+	}
+
+	input {
+		border: 0px;
+		background-color: $rightBarButtons;
+		width: 100%;
+		padding: 0.5rem;
+		margin-bottom: 0.5rem;
+		box-sizing: border-box;
+		color: $rightBarIcons;
+	}
+
+	button, a.button {
+		background-color: $rightBarButtons;
+		color: $rightBarIcons;
+		padding: 0.5rem;
+		margin: 0px 0.25rem;
+		display: inline-block;
+		cursor: pointer;
+	}
+}
+
+.sb_bar {
+	position: absolute;
+	top: 0px;
+	display: inline-block;
+	z-index: 2;
+	height: 100%;
+	overflow: visible;
+	padding-bottom: $desktop-button-height;
+
+	@media screen and (max-width: 500px) {
+		padding-bottom: $mobile-button-height;
+	}
+
+	&.sb_tools {
+		background-color: $leftBarBG;
+		box-shadow: $leftBarShadow;
+		left: 0px;
+
+		.sb_icon {
+			background-color: $leftBarButtons;
+			color: $leftBarIcons;
+			&:hover { background-color: $leftBarButtonsHover; color: $leftBarIconsHover; }
+			&.active { background-color: $leftBarButtonsActive; color: $leftBarIconsActive; }
+		}
+	}
+	&.sb_actions {
+		background-color: $rightBarBG;
+		box-shadow: $rightBarShadow;
+		right: 0px;
+
+		.sb_icon {
+			background-color: $rightBarButtons;
+			color: $rightBarIcons;
+			&:hover { background-color: $rightBarButtonsHover; color: $rightBarIconsHover; }
+			&.active { background-color: $rightBarButtonsActive; color: $rightBarIconsActive; }
+		}
+	}
+}
+
+.sb_icon {
+	display: block;
+	position: relative;
+	width: $desktop-button-height;
+	height: $desktop-button-height;
+	text-align: center;
+	cursor: pointer;
+	font-size: $desktop-icon-size;
+	line-height: $desktop-button-height;
+
+	i {
+		font-size: $desktop-icon-size;
+		line-height: $desktop-button-height;
+	}
+
+	@media screen and (max-width: 500px) {
+		width: $mobile-button-height;
+		height:  $mobile-button-height;
+		font-size: $mobile-icon-size;
+		line-height:  $mobile-button-height;
+
+		i {
+			font-size: $mobile-icon-size;
+			line-height: $mobile-button-height;
+		}
+	}
+
+	.sb_tooltip {
+		display: none;
+		pointer-events: none;
+		font-size: 1rem;
+		line-height: 1rem;
+		padding: 0.5rem;
+		background-color: $tooltipBG;
+		color: $tooltipText;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		-webkit-transform: translateY(-50%);
+		white-space: nowrap;
+		width: auto;
+		height: auto;
+		z-index: 2;
+
+		@at-root {
+			.sb_tool .sb_tooltip { left: 108%; }
+			.sb_action .sb_tooltip { right: 108%; }
+			.sb_icon:hover .sb_tooltip { display: inline-block; }
+		}
+
+		&:after {
+			content: "";
+			position: absolute;
+			border-style: solid;
+			display: block;
+			width: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			-webkit-transform: translateY(-50%);
+
+			.sb_tools & {
+				border-color: transparent $tooltipBG;
+				border-width: 7px 10px 7px 0px;
+				right: 100%;
+			}
+
+			.sb_actions & {
+				border-color: transparent $tooltipBG;
+				border-width: 7px 0px 7px 10px;
+				left: 100%;
+			}
+		}
+	}
+}
+
+/*
+	DRAWERS
+*/
+
+.sb_drawers {
+	background-color: $drawerBG;
+	bottom: -1 * $desktop-drawer-height;
+	box-shadow: $drawerBarShadow;
+	display: block;
+	height: $desktop-drawer-height + $desktop-button-height;
+	left: 0px;
+	overflow-x: auto;
+	position: absolute;
+	transition: bottom 200ms linear;
+	width: 100%;
+	z-index: 4;
+	overflow-x: hidden;
+
+	@media screen and (max-width: 500px) {
+		bottom: -1 * $mobile-drawer-height;
+		height: $mobile-drawer-height + $mobile-button-height;
+	}
+
+	&:after {
+		content: "";
+		height: $desktop-drawer-height;
+		left: 0px;
+		pointer-events: none;
+		position: absolute;
+		top: $desktop-button-height;
+		width: 100%;
+		z-index: 2;
+
+		@media screen and (max-width: 500px) {
+			height: $mobile-drawer-height;
+			top: $mobile-button-height;
+		}
+	}
+
+	&.active {
+		bottom: 0px;
+	}
+
+	.sb_drawer_buttons {
+		background-color: $drawerBarBG;
+		height: $desktop-button-height + 2rem;
+		padding: 0px $desktop-button-height;
+		overflow-x: auto;
+
+		@media screen and (max-width: 500px) {
+			height: $mobile-button-height + 2rem;
+			padding: 0px $mobile-button-height;
+		}
+
+		.sb_drawer_slider {
+			display: inline-block;
+			position: relative;
+			white-space: nowrap;
+		}
+
+		.sb_drawer_scroll {
+			display: inline-block;
+			position: absolute;
+			top: 0px;
+			height: $desktop-button-height;
+			width: $desktop-button-height;
+			background-color: $scrollButtons;
+			color: $scrollButtonsIcons;
+			z-index: 2;
+			font-size: $desktop-icon-size;
+			line-height: $desktop-button-height;
+			cursor: pointer;
+
+			@media screen and (max-width: 500px) {
+				height: $mobile-button-height;
+				width: $mobile-button-height;
+				font-size: $mobile-icon-size;
+				line-height: $mobile-button-height;
+			}
+
+			&.sb_left { left: 0px; border-right: 1px solid $scrollButtonsBorders; }
+			&.sb_right { right: 0px; border-left: 1px solid $scrollButtonsBorders; }
+
+			&:hover {
+				background-color: $scrollButtonsHover;
+				color: $scrollButtonsIconsHover;
+
+				&.sb_left { border-right: 1px solid $scrollButtonsBordersHover; }
+				&.sb_right { border-left: 1px solid $scrollButtonsBordersHover; }
+			}
+
+			@media screen and (max-width: 500px) {
+				display: none;
+			}
+		}
+
+		.sb_button {
+			color: $drawerBarText;
+			background-color: $drawerBarButtons;
+			cursor: pointer;
+			display: inline-block;
+			font-size: $desktop-font-size;
+			line-height: $desktop-button-height;
+			height: $desktop-button-height;
+			padding: 0px 1rem;
+			position: relative;
+			//transition: background-color 150ms linear;
+
+			@media screen and (max-width: 500px) {
+				font-size: $mobile-font-size;
+				line-height: $mobile-button-height;
+				height: $mobile-button-height;
+			}
+
+			&:hover { background-color: $drawerBarButtonsHover; color: $drawerBarTextHover; }
+			&.active { background-color: $drawerBarButtonsActive; color: $drawerBarTextActive; }
+		}
+	}
+
+	.sb_content_wrapper {
+		background-color: $drawerBG;
+		top: $desktop-button-height;
+		left: 0px;
+		position: absolute;
+		width: 100%;
+		height: $desktop-drawer-height;
+
+		@media screen and (max-width: 500px) {
+			top: $mobile-button-height;
+			height: $mobile-drawer-height;
+		}
+
+		.sb_content {
+			background-color: $drawerBG;
+			position: absolute;
+			top: 0px;
+			width: 100%;
+			opacity: 0;
+			transition: opacity 150ms linear;
+			height: $desktop-drawer-height;
+			padding: 0px 1rem;
+			pointer-events: none;
+			white-space: nowrap;
+			overflow-x: auto;
+
+			@media screen and (max-width: 500px) {
+				height: $mobile-drawer-height;
+			}
+
+			&.active { opacity: 1; pointer-events: auto; z-index: 1; }
+
+			img, object {
+				height: $desktop-drawer-height - 3.05rem !important;
+				margin: 1rem;
+				cursor: pointer;
+				position: relative;
+				width: auto!important;
+
+				@media screen and (max-width: 500px) {
+					height: $mobile-drawer-height - 2rem !important;
+				}
+			}		
+		}
+	}
+}
