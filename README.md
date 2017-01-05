@@ -9,6 +9,8 @@ Stickerbomb was originally created as a holiday card maker promotion for Missour
 
 [Demo](http://rol.la/holiday_16)
 
+[Demo 2](http://joshuawoehlke.com/stickerbomb-js-image-editor/)
+
 ## Usage
 
 Include stickerbomb.js or stickerbomb.min.js on your site. **DO NOT** include stickerbomb.css or stickerbomb.scss--these files are only used to create the CSS string present in stickerbomb.js, which you will later edit with the styles properties.
