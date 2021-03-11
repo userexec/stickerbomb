@@ -1,3 +1,5 @@
+**This project is not maintained and is presented for archival purposes only**
+
 # Stickerbomb
 **Single-command, in-browser guided image editor**
 
@@ -5,11 +7,7 @@
 
 Stickerbomb is an in-browser sticker-based image editor that allows your users to place stickers on a background, move them around, rotate, scale, mess with layers, etc. Remember [Blingee](http://www.blingee.com)?
 
-Stickerbomb was originally created as a holiday card maker promotion for Missouri University of Science and Technology. It is MIT licensed for use in any project.
-
-[Demo](http://rol.la/holiday_16)
-
-[Demo 2](http://joshuawoehlke.com/stickerbomb-js-image-editor/)
+[Demo](http://joshuawoehlke.com/stickerbomb-js-image-editor/)
 
 ## Usage
 
